@@ -1,0 +1,23 @@
+[user]
+	naem = Rafal Sladek
+	name = Rafal Sladek
+	email = rsladek@autoscout24.com
+[push]
+	default = matching
+[ui]
+	color = auto
+[alias]
+	st = status
+	pl = log --graph --pretty=\"%Cgreen%h%Creset – %ai – %s (%Cblueby %cn%Creset)\"
+	slog = log --pretty=\"%Cgreen%h%Creset – %ai – %s (%Cblueby %cn%Creset)\" HEAD~15..HEAD
+	co = checkout
+  	hl = log --pretty=\"%h\"
+	br = branch
+	ci = commit
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%aN, %cr)%Creset' --abbrev-commit --date=relative
+[branch]
+	autosetuprebase = always
+[http]
+	sslVerify = true

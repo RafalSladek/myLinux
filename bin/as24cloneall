@@ -1,0 +1,5 @@
+#!/bin/sh
+
+as24repos | while read line; do
+	as24clonebyname $line
+done

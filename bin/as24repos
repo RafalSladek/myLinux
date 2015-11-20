@@ -1,0 +1,8 @@
+#!/bin/sh
+
+curl -q \
+	-u "${as24_git_token}:x-oauth-basic" \
+	-s "https://api.github.com/orgs/autoscout24/repos?per_page=200" \
+| grep '"name"' \
+| awk -F': "' '{print $2}' \
+| sed -e 's/",//g' 

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+repo=$1
+
+src_dir="$HOME/Sources/"
+token="$rs_git_token:x-oauth-basic"
+user="rafalsladek"
+
+git clone "https://$token@github.com/$user/$repo" $src_dir/$repo
