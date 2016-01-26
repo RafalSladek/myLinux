@@ -39,3 +39,7 @@ Now, since we just have one commit i.e ‘initial commit’. Let us force push u
 $ git push -f origin master
 ```
 Go and check your project repository in github, you should see only one commit.
+
+
+In Jan 16 I discovered tmux, thanks to Alex.
+A good documentation you will find here - https://danielmiessler.com/study/tmux/
