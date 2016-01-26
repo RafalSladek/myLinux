@@ -43,3 +43,8 @@ Go and check your project repository in github, you should see only one commit.
 
 In Jan 16 I discovered tmux, thanks to Alex.
 A good documentation you will find here - https://danielmiessler.com/study/tmux/
+
+A helpfull tool for bash is git completion, which is part of bash-completion
+Some links which I find usefull :
+*https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks
+*https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion
