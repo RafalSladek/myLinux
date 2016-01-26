@@ -42,7 +42,7 @@ Go and check your project repository in github, you should see only one commit.
 
 # tmux
 In Jan 2016 I discovered tmux, thanks to Alex.
-[A good documentation you will find here](https://danielmiessler.com/study/tmux/)
+[A good documentation you will find here](https://danielmiessler.com/study/tmux/) and a [shortcuts cheet sheet](http://tmuxcheatsheet.com/) 
 
 # git completion
 A helpfull tool for bash is git completion, which is part of bash-completion
