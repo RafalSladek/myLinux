@@ -40,11 +40,12 @@ $ git push -f origin master
 ```
 Go and check your project repository in github, you should see only one commit.
 
+# tmux
+In Jan 2016 I discovered tmux, thanks to Alex.
+[A good documentation you will find here](https://danielmiessler.com/study/tmux/)
 
-In Jan 16 I discovered tmux, thanks to Alex.
-A good documentation you will find here - https://danielmiessler.com/study/tmux/
-
+# git completion
 A helpfull tool for bash is git completion, which is part of bash-completion
 Some links which I find usefull :
-*https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks
-*https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion
+* [Git-Basics-Tips-and-Tricks](https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks)
+* [Install-Bash-git-completion](https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion)
