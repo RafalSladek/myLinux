@@ -2,6 +2,7 @@ alias gitpullall="find /usr/sources/ -mindepth 1 -maxdepth 1 -type d -print -exe
 alias gitUpdateTokenAll="find /usr/sources/ -mindepth 1 -maxdepth 1 -type d -print | xargs -L 1 bash -c 'cd "$0" && gitTokenUpdate'"
 alias rdpasdw0459="rdp asdw0459"
 alias cdsrc="cd /usr/sources"
+alias cdcd="cd /usr/sources/classified-detail"
 alias ll="ls -alh"
 alias gc="git commit -a -m $1"
 alias gs="git status"

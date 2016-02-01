@@ -1,7 +1,11 @@
 #!/bin/bash
 
 if [ $# -lt 2 ]; then
-  echo "Usage: ./run.sh priceestimation 9000"
+  echo "Usage: $0 <jigsaw_backend_name> <local_service_port> [<another_jigsaw_backend_name> <another_local_service_port> ...]"
+  echo "eg: $0 priceestimation 9000"
+  echo "eg: $0 classifieddetail 9000"
+  echo "eg: $0 classifiedlist 9000"
+  echo "eg: $0 home 9000 contentservice 8080"
   exit 1
 fi
 
@@ -10,14 +14,21 @@ set -x
 SERVICE_NAME=$1
 MY_LOCAL_IP=$PLAY_LOCAL_SERVER_IP
 
+while [ $# -ge 2 ]; do
+        if [ -z $LOCALTEST_SERVICES_AND_PORTS ] ; then
+                LOCALTEST_SERVICES_AND_PORTS="$1=$2"
+        else
+                LOCALTEST_SERVICES_AND_PORTS="$LOCALTEST_SERVICES_AND_PORTS;$1=$2"
+        fi
+        shift ; shift
+done
 
-CONTAINER_NAME="as24_jigsaw"
-echo "Remove existing container $CONTAINER_NAME"
-docker stop $CONTAINER_NAME
-docker rm $CONTAINER_NAME
+echo "Remove existing container $SERVICE_NAME"
+docker stop $SERVICE_NAME
+docker rm $SERVICE_NAME
 
-echo "Creating new docker container $CONTAINER_NAME with ${MY_LOCAL_IP} as host IP address"
+echo "Creating new docker container $SERVICE_NAME with ${MY_LOCAL_IP} as host IP address"
+docker run -d --name $SERVICE_NAME -p 8080:80 --env LOCALTEST="$LOCALTEST_SERVICES_AND_PORTS" --env LOCALIP="$MY_LOCAL_IP" --env ACCOUNTSUBDOMAIN="a" as24/jigsaw
 docker ps -a
-docker run -d --name $SERVICE_NAME -p 8080:80 --env LOCALTEST="$SERVICE_NAME" --env LOCALIP="$MY_LOCAL_IP" --env LOCALPORT="$2" --env ACCOUNTSUBDOMAIN="a" "as24/jigsaw"
-
 set +x
+
