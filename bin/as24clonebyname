@@ -6,10 +6,8 @@ src_dir="/share/Archive/as24/sources"
 token="$as24_git_token:x-oauth-basic"
 user="AutoScout24"
 
-
 if [ -d "$src_dir/$repo" ]; then
-	echo "[Repo already exists] $src_dir/$repo"
+	echo "[Repo already existst] $src_dir/$repo"
 else
-	#git clone "https://$token@github.com/$user/$repo" $src_dir/$repo
 	git clone -v "git@github.com:$user/$repo.git" $src_dir/$repo
 fi

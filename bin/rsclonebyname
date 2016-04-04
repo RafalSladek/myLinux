@@ -6,4 +6,9 @@ src_dir="$HOME/Sources/"
 token="$rs_git_token:x-oauth-basic"
 user="rafalsladek"
 
-git clone "https://$token@github.com/$user/$repo" $src_dir/$repo
+if [ -d "$src_dir/$repo" ]; then
+        echo "[Repo already existst] $src_dir/$repo"
+else
+        git clone "git@github.com:$user/$repo" $src_dir/$repo
+fi
+
