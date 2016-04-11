@@ -1,4 +1,5 @@
 alias gitpullall="find /usr/sources/ -mindepth 1 -maxdepth 1 -type d -print -exec git -C {} pull \;"
+alias getAllDirsIn="find -mindepth 1 -maxdepth 1 -type d"
 alias gitUpdateTokenAll="find /usr/sources/ -mindepth 1 -maxdepth 1 -type d -print | xargs -L 1 bash -c 'cd "$0" && gitTokenUpdate'"
 alias rdpwin="rdp asdw0459"
 alias cdsrc="cd /usr/sources"
