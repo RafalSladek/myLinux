@@ -2,7 +2,7 @@
 
 repo=$1
 
-src_dir="/share/Archive/as24/sources"
+src_dir="/usr/sources"
 token="$as24_git_token:x-oauth-basic"
 user="AutoScout24"
 
