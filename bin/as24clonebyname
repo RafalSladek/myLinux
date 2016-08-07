@@ -1,13 +1,56 @@
 #!/bin/sh
 
-repo=$1
+echo "How to use $0 <repoHost: github.com> <repoUser: rsladek, autoscout24> <repoName: App-V3, classified-detail>"
 
-src_dir="/usr/sources"
-token="$as24_git_token:x-oauth-basic"
-user="AutoScout24"
+# github.com or gitlab.com, github.as24.local
+repoHost=$1
+repoHostDir=""
+echo "Passed repoHost: $repoHost"
 
-if [ -d "$src_dir/$repo" ]; then
-	echo "[Repo already existst] $src_dir/$repo"
-else
-	git clone -v "git@github.com:$user/$repo.git" $src_dir/$repo
-fi
+# rsladek, autoscout24, rafalsladek etc.
+repoUser=$2
+repoUserDir=""
+echo "Passed repoUser: $repoUser"
+
+# App-V3, classified-detail
+repoName=$3
+echo "Passed repoName: $repoName"
+
+case "$repoHost" in
+    github.com)
+            repoHostDir="hub.com"
+            ;;
+    github.as24.local)
+            repoHostDir="hub.local"
+            ;;
+    gitlab.com)
+           repoHostDir="lab.com"
+           ;;
+    *)
+            repoHostDir=${repoHost}
+esac
+echo "repoHostDir: $repoHostDir"
+
+case "$repoUser" in
+    autoscout24)
+            repoUserDir="as24"
+            ;;
+    *)
+            repoUserDir=${repoUser}
+            ;;
+esac
+echo "repoUserDir: $repoUserDir"
+
+repoSrcDir="${SOURCES}/${repoHostDir}_${repoUserDir}"
+echo "repoSrcDir: $repoSrcDir"
+
+clone(){
+	if [ -d "$repoSrcDir" ]; then
+		echo "[Repo already existst] $repoSrcDir"
+	else
+		echo "git clone git@${repoHost}:${repoUser}/${repoName}.git"
+		git clone -v "git@${repoHost}:${repoUser}/${repoName}.git" ${repoSrcDir}
+	fi
+}
+
+clone
