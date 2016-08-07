@@ -1,20 +1,28 @@
 #!/bin/sh
+debug=$4
+
+debugEcho(){
+	if [ ${debug} == "debug" ]; then
+		echo "$1";
+	fi
+}
 
 echo "How to use $0 <repoHost: github.com> <repoUser: rsladek, autoscout24> <repoName: App-V3, classified-detail>"
 
-# github.com or gitlab.com, github.as24.local
+# github.com, gitlab.com, github.as24.local
 repoHost=$1
 repoHostDir=""
-echo "Passed repoHost: $repoHost"
+
+debugEcho "Passed repoHost: $repoHost"
 
 # rsladek, autoscout24, rafalsladek etc.
 repoUser=$2
 repoUserDir=""
-echo "Passed repoUser: $repoUser"
+debugEcho "Passed repoUser: $repoUser"
 
 # App-V3, classified-detail
 repoName=$3
-echo "Passed repoName: $repoName"
+debugEcho "Passed repoName: $repoName"
 
 case "$repoHost" in
     github.com)
@@ -29,7 +37,7 @@ case "$repoHost" in
     *)
             repoHostDir=${repoHost}
 esac
-echo "repoHostDir: $repoHostDir"
+debugEcho "repoHostDir: $repoHostDir"
 
 case "$repoUser" in
     autoscout24)
@@ -39,17 +47,22 @@ case "$repoUser" in
             repoUserDir=${repoUser}
             ;;
 esac
-echo "repoUserDir: $repoUserDir"
+debugEcho "repoUserDir: $repoUserDir"
 
 repoSrcDir="${SOURCES}/${repoHostDir}_${repoUserDir}"
-echo "repoSrcDir: $repoSrcDir"
+debugEcho "repoSrcDir: $repoSrcDir"
 
 clone(){
 	if [ -d "$repoSrcDir" ]; then
 		echo "[Repo already existst] $repoSrcDir"
 	else
 		echo "git clone git@${repoHost}:${repoUser}/${repoName}.git"
-		git clone -v "git@${repoHost}:${repoUser}/${repoName}.git" ${repoSrcDir}
+		if [ ! -z "${repoHost}" ] && [ ! -z "${repoUser}" ] && [ ! -z "$repoName" ]
+			then
+				git clone -v "git@${repoHost}:${repoUser}/${repoName}.git" ${repoSrcDir}
+		else
+				echo "One of the parameters repoHost, repoUser or repoName was empty."
+		fi
 	fi
 }
 
