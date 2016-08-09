@@ -11,4 +11,3 @@ if [ -d "$src_dir/$repo" ]; then
 else
         git clone "git@github.com:$user/$repo" $src_dir/$repo
 fi
-

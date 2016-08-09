@@ -2,12 +2,11 @@
 debug=$4
 
 debugEcho(){
-	if [ ${debug} == "debug" ]; then
+	if [ "x${debug}" == "xdebug" ]; then
 		echo "$1";
 	fi
 }
 
-echo "How to use $0 <repoHost: github.com> <repoUser: rsladek, autoscout24> <repoName: App-V3, classified-detail>"
 
 # github.com, gitlab.com, github.as24.local
 repoHost=$1
@@ -49,12 +48,16 @@ case "$repoUser" in
 esac
 debugEcho "repoUserDir: $repoUserDir"
 
-repoSrcDir="${SOURCES}/${repoHostDir}_${repoUserDir}"
+repoSrcDir="${SOURCES}/${repoHostDir}_${repoUserDir}/$repoName"
 debugEcho "repoSrcDir: $repoSrcDir"
 
 clone(){
 	if [ -d "$repoSrcDir" ]; then
 		echo "[Repo already existst] $repoSrcDir"
+		echo "Proceed with stash -> pull -> stash pop"
+		git -C $repoSrcDir stash
+		git -C $repoSrcDir pull --rebase
+		git -C $repoSrcDir stash pop
 	else
 		echo "git clone git@${repoHost}:${repoUser}/${repoName}.git"
 		if [ ! -z "${repoHost}" ] && [ ! -z "${repoUser}" ] && [ ! -z "$repoName" ]
@@ -67,3 +70,4 @@ clone(){
 }
 
 clone
+echo "How to use $0 <repoHost: github.com> <repoUser: rsladek, autoscout24> <repoName: App-V3, classified-detail>"
