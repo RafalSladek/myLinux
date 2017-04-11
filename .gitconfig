@@ -22,4 +22,11 @@
 	sslVerify = true
 [core]
 	autocrlf = input
-	editor	 = vim 
+	editor	 = vim
+[merge]
+	tool = kdiff3
+
+[mergetool]
+	path = /usr/local/bin/kdiff3
+	trustExitCode = false
+	keepBakcup = false 
