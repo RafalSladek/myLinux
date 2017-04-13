@@ -6,13 +6,13 @@ I started my advanteure with linux. This is what came up out of it
 
 ### How to delete the commit history in github, after commiting some sensitive data
 ```
-$ git clone https://github.com/acsudeep/myproject.git
+$ git clone git@github.com:RafalSladek/myLinux.git
 ```
 
 Since all the commit history are in the “.git” folder, we have to remove it. So, go inside your project folder. For me the project folder is ‘myproject’.
 
 ```
-$ cd myproject
+$ cd myLinux
 ```
 And delete the ‘.git folder’ with this command.
 
@@ -23,7 +23,7 @@ Now, let us re-initialize the repository.
 
 ```
 $ git init
-$ git remote add origin https://github.com/acsudeep/myproject.git
+$ git remote add origin git@github.com:RafalSladek/myLinux.git
 $ git remote -v
 ```
 Next, let us add all our files and commit the changes.
