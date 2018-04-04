@@ -20,7 +20,9 @@
 	autosetuprebase = always
 [http]
 	sslVerify = true
+	
 [core]
+	editor = '/Applications/Visual Studio Code.app/Contents/MacOS/Electron' -w
 	autocrlf = input
 	editor	 = vim
 [merge]
