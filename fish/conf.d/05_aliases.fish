@@ -1,4 +1,8 @@
-alias aws_assume='source ~/Sources/hub.com_as24/iam-bash/as24-aws-assume.sh'
-alias ssh-access='~/Sources/hub.com_as24/iam-bash/ssh-access.sh'
-
-alias as24src='cd ~/Sources/hub.com_as24/'
+alias aws_assume='source ~/Sources/scout24.hub/iam-bash/as24-aws-assume.sh'
+alias afp-ssh-access='~/Sources/scout24.hub/iam-bash/afp-ssh-access.sh'
+alias ll='ls -alhi'
+alias srcas24='cd ~/Sources/scout24.hub/'
+alias src='cd ~/Sources/'
+alias srcrs='cd ~/Sources/rafalsladek.hub/'
+alias md5sum=md5
+alias unset 'set --erase'
