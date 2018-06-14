@@ -1,0 +1,1 @@
+set -x GO_PIPELINE_LABEL 1.0

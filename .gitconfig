@@ -1,5 +1,5 @@
 [user]
-	name = Rafal
+	name = Rafal Sladek
 	email = rafal.sladek@gmail.com
 [push]
 	default = matching
@@ -22,7 +22,6 @@
 	sslVerify = true
 	
 [core]
-	editor = '/Applications/Visual Studio Code.app/Contents/MacOS/Electron' -w
 	autocrlf = input
 	editor	 = vim
 [merge]
