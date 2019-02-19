@@ -1,1 +1,2 @@
 set -x GO_PIPELINE_LABEL 1.0
+set -x VERSION 1.0
