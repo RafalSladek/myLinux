@@ -6,3 +6,4 @@ alias src='cd ~/Sources/'
 alias srcrs='cd ~/Sources/rafalsladek.hub/'
 alias md5sum=md5
 alias unset 'set --erase'
+alias python=python3
