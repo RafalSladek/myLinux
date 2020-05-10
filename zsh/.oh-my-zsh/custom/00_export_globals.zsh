@@ -8,3 +8,5 @@ if [ -d "$HOME/bin" ] ; then
    export PATH="$HOME/bin:$PATH"
 fi
 
+export AWS_REGION=eu-central-1
+export AWS_DEFAULT_REGION=eu-central-1
