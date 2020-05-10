@@ -1,0 +1,47 @@
+---
+# tasks file for create-user-with-password
+
+- name: Generate password for new user
+  local_action: shell openssl rand -base64 32
+  register: user_password
+  with_items: "{{ users }}"
+  run_once: true
+
+- name: Generate encrypted password
+  local_action: shell python -c 'import crypt; print(crypt.crypt( "{{ item.stdout }}", crypt.mksalt(crypt.METHOD_SHA512)))'
+  register: encrypted_user_password
+  with_items: "{{ user_password.results }}"
+  run_once: true
+
+- name: Create new user with group
+  user:
+    name: "{{ item }}"
+    groups: "{{ group }}"
+    shell: /bin/bash
+    append: yes
+    createhome: yes
+    comment: "Created with ansible"
+  with_items:
+    - "{{ users }}"
+  register: user_created
+
+- name: Update user Passwords
+  user:
+    name: "{{ item.0 }}"
+    password: "{{ item.1.stdout }}"
+  with_together:
+    - "{{ users }}"
+    - "{{ encrypted_user_password.results }}"
+  when: user_created.changed
+
+- name: Force user to change the password at first login
+  shell: chage -d 0 "{{ item }}"
+  with_items:
+    - "{{ users }}"
+  when: user_created.changed
+
+- name: Save Passwords Locally
+  become: no
+  local_action: copy content={{ item.stdout }} dest=./{{ item.item }}.txt
+  with_items: "{{ user_password.results }}"
+  when: user_created.changed

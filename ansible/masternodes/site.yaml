@@ -1,0 +1,16 @@
+---
+- hosts: new
+  remote_user: root
+  become: yes
+  vars:
+    users:
+      - {
+          name: "ansible",
+          groups: "ansible",
+        }
+
+  roles:
+    - create-user-with-password
+    - common
+    - securenode
+    - masternode

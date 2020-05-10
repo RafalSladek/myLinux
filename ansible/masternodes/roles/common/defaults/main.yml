@@ -1,0 +1,6 @@
+---
+# defaults file for common
+
+#users who get SSH access to these machines
+sshusers:
+  - rsladek

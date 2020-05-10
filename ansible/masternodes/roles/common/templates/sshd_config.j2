@@ -1,0 +1,24 @@
+#$Id$
+Include /etc/ssh/sshd_config.d/*.conf
+Port 8208
+Protocol 2
+LoginGraceTime 60
+PermitRootLogin no
+AllowUsers rsladek ansible
+AuthorizedKeysFile /etc/ssh/authorized_keys/%u
+MaxSessions 2
+HostbasedAuthentication no
+IgnoreRhosts yes
+PasswordAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+UsePAM yes
+AllowTcpForwarding no
+X11Forwarding no
+PrintMotd no
+PrintLastLog yes
+ClientAliveInterval 300
+ClientAliveCountMax 0
+MaxStartups 2
+AcceptEnv LANG LC_*
+Subsystem	sftp	/usr/lib/openssh/sftp-server
