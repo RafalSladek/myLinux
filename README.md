@@ -50,9 +50,6 @@ Some links which I find usefull :
 * [Git-Basics-Tips-and-Tricks](https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks)
 * [Install-Bash-git-completion](https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion)
 
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/RafalSladek/mylinux/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
 ## Ansible
 
 ## Setup
