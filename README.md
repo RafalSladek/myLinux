@@ -56,11 +56,11 @@ Some links which I find usefull :
 
 1. Install sshpass on mac
 
-        ```bash
-        curl -O -L https://fossies.org/linux/privat/sshpass-1.06.tar.gz && tar xvzf sshpass-1.06.tar.gz
-        cd sshpass-1.06
-        ./configure
-        sudo make install
-        ```
+```bash
+curl -O -L https://fossies.org/linux/privat/sshpass-1.06.tar.gz && tar xvzf sshpass-1.06.tar.gz
+cd sshpass-1.06
+./configure
+sudo make install
+```
         
-1. Install ansible on mac
+2. Install ansible on mac
