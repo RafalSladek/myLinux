@@ -1,6 +1,6 @@
 [user]
 	name = Rafal Sladek
-	email = rafal.sladek@gmail.com
+	email = email@email.com
 [push]
 	default = matching
 [ui]
@@ -31,12 +31,3 @@
 	path = /usr/local/bin/kdiff3
 	trustExitCode = false
 	keepBakcup = false 
-[secrets]
-	providers = cat /Users/rsladek/.gitsecrets/provider
-	allowed = arn:aws:acm:eu-west-1:[0-9a-f]{12}:certificate/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}
-	allowed = arn:aws:acm:us-east-1:[0-9a-f]{12}:certificate/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}
-	allowed = arn:aws:kms:eu-west-1:[0-9a-f]{12}:key/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}
-	allowed = VERGLEICHSIMMOBILIEN
-	allowed = [0-9]{19}
-[init]
-	templateDir = /Users/rsladek/.gitsecrets/hooks
